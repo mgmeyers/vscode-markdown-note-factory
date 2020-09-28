@@ -1,0 +1,11 @@
+# CIVITATIBUS ASIAE RESTITUTIS
+
+I have one of them, in large brass, which was found at Colchester.
+
+The compass of this earthquake may be reckon'd to take up 300 miles diameter, as a circle. Now, we cannot conceive, how any subterraneous vapour can produce such an effect, as instantaneously to demolish all these cities; and that such an accident should never happen after. That the whole country of Asia minor should not at the same time be destroy'd, its mountains be renversed, its fountains, springs, and rivers broken up and ruin'd for ever. Instead whereof we find nothing [1017]suffered, but those cities; no kind of alteration in the surface of the country; it remains the same as it were in the beginning of time. In 1586 an earthquake in Peru, that extended 900 miles.
+
+From these considerations, I cannot persuade myself, to enter into the opinion of vapours, and eruptions being the cause sought for; and, after we have treated the argument in a superficial view, we must go a little deeper.
+
+If we would consider things like philosophers, let us propose to ourselves this problem: Where is the power to be plac'd, that is requir'd to move a surface of earth 30 miles in diameter?
+
+To answer this, consult the ingineers, and those that make mines in the sieges of towns; they will acquaint us, that the effect of mines is produced in form of an inverted cone. And that a diameter of 30 miles, in the base, will require an axis of 15 or 20 miles to operate upon that base, so as to shake it, at least. Now the vapours, or whatever power we propose to operate, according to the foregoing requisite, in order to form the appearance of an earthquake, must be 15 or 20 miles deep in the earth. But what mind can conceive, that any natural power is able to move an inverted cone of solid earth, whose base is 30 miles diameter, whose axis 20? or was [1018]it possible; would not the whole texture of that body of earth be quite disturb'd and shatter'd, especially in regard to its springs and fountains? but nothing like this is ever found to be the consequence of an earthquake, tho' fatal to cities.

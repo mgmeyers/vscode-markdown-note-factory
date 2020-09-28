@@ -1,0 +1,93 @@
+{
+	"name": "markdown-note-factory",
+	"displayName": "Markdown Note Factory",
+	"description": "Helper commands for creating new markdown notes within a workspace",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.49.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"markdown",
+		"knowledge base",
+		"zettelkasten",
+		"notes"
+	],
+	"main": "./out/extension.js",
+	"activationEvents": [
+		"onLanguage:markdown",
+		"onCommand:markdown-note-factory.newNote",
+		"onCommand:markdown-note-factory.newNoteFromSelection"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "markdown-note-factory.newNote",
+				"title": "Note Factory: New Note"
+			},
+			{
+				"command": "markdown-note-factory.newNoteFromSelection",
+				"title": "Note Factory: New Note From Selection"
+			}
+		],
+		"configuration": {
+			"title": "Markdown Note Factory Configuration",
+			"properties": {
+				"markdown-note-factory.defaultFileExtension": {
+					"type": "string",
+					"default": "md",
+					"description": "The file extension to use when creating new markdown notes"
+				},
+				"markdown-note-factory.fileNameFormat": {
+					"type": "string",
+					"enum": [
+						"slugged",
+						"lowercase-slugged",
+						"as-is"
+					],
+					"default": "as-is",
+					"description": "Determines the amount of processing applied when converting note titles to file names. slugged = convert to URL friendly slug; lowercase-slug = same as slugged but lowercased; as-is = strip out restricted characters, otherwise leave as is."
+				},
+				"markdown-note-factory.newNoteDirectory": {
+					"type": "string",
+					"default": "SAME_AS_ACTIVE_NOTE",
+					"description": "The destination directory for new notes. Defaults to 'SAME_AS_ACTIVE_NOTE'; you can also use 'WORKSPACE_ROOT'; or a 'subdirectory/path' in the Workspace Root."
+				},
+				"markdown-note-factory.noteTemplate": {
+					"type": "string",
+					"default": "# ${noteTitle}\n\n${noteContent}",
+					"description": "Template to use when creating notes. Available tokens: ${noteTitle}, ${noteContent}, ${date}, ${timestamp}. Timestamp is inserted in ISO format, i.e. 2020-07-09T05:29:00.541Z."
+				},
+				"markdown-note-factory.selectionReplacementTemplate": {
+					"type": "string",
+					"default": "[[${fileName}]]",
+					"description": "When creating a note from selected text, this template will take the place of the selected text in the origin document. Available tokens: ${absoluteFilePath}, ${relativeDirectoryPath}, ${fileExtension}, ${fileName}, ${fileNameWithExtension}, ${fileWorkspaceDirectory}."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/github-slugger": "^1.3.0",
+		"@types/node": "^14.0.27",
+		"@types/vscode": "^1.49.0",
+		"@typescript-eslint/eslint-plugin": "^3.8.0",
+		"@typescript-eslint/parser": "^3.8.0",
+		"eslint": "^7.6.0",
+		"typescript": "^4.0.2",
+		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"github-slugger": "^1.3.0",
+		"sanitize-filename": "^1.6.3"
+	}
+}

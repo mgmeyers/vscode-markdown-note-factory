@@ -3,6 +3,11 @@
 	"displayName": "Markdown Note Factory",
 	"description": "Helper commands for creating new markdown notes within a workspace",
 	"version": "0.0.1",
+	"publisher": "mgmeyers",
+	"repository": {
+		"url": "https://github.com/mgmeyers/markdown-note-factory.git",
+		"type": "git"
+	},
 	"engines": {
 		"vscode": "^1.49.0"
 	},

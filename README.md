@@ -11,7 +11,7 @@ This extension provides helpful commands for creating new markdown notes within 
 
 You can also access this command from the context menu:
 
-![Context Menu](https://github.com/mgmeyers/vscode-markdown-note-factory/raw/main/assets/context-menu.png)
+<img src="https://github.com/mgmeyers/vscode-markdown-note-factory/raw/main/assets/context-menu.png" alt="Context menu showing New Note From Selection command" width="233" />
 
 
 ## Extension Settings

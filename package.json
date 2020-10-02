@@ -5,7 +5,7 @@
 	"version": "0.0.1",
 	"publisher": "mgmeyers",
 	"repository": {
-		"url": "https://github.com/mgmeyers/markdown-note-factory.git",
+		"url": "https://github.com/mgmeyers/vscode-markdown-note-factory.git",
 		"type": "git"
 	},
 	"engines": {
@@ -27,6 +27,15 @@
 		"onCommand:markdown-note-factory.newNoteFromSelection"
 	],
 	"contributes": {
+		"menus": {
+			"editor/context": [
+				{
+					"when": "resourceLangId == markdown && editorHasSelection",
+					"group": "1_modification",
+					"command": "markdown-note-factory.newNoteFromSelection"
+				}
+			]
+		},
 		"commands": [
 			{
 				"command": "markdown-note-factory.newNote",

@@ -39,11 +39,13 @@
 		"commands": [
 			{
 				"command": "markdown-note-factory.newNote",
-				"title": "Note Factory: New Note"
+				"category": "Note Factory",
+				"title": "New Note"
 			},
 			{
 				"command": "markdown-note-factory.newNoteFromSelection",
-				"title": "Note Factory: New Note From Selection"
+				"category": "Note Factory",
+				"title": "New Note From Selection"
 			}
 		],
 		"configuration": {

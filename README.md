@@ -9,6 +9,10 @@ This extension provides helpful commands for creating new markdown notes within 
 
 `command`: `Note Factory: New Note From Selection`: Prompts for a note title and extracts the currently selected text into the new note, leaving a link to the new note in its place. Links to extracted notes are created using the `selectionReplacementTemplate` config setting.
 
+You can also access this command from the context menu:
+
+![Context Menu](https://github.com/mgmeyers/vscode-markdown-note-factory/raw/main/assets/context-menu.png)
+
 
 ## Extension Settings
 

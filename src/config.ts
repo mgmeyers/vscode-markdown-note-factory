@@ -12,6 +12,7 @@ export enum NoteDirectory {
 }
 
 export interface Config {
+    dateFormat: string
     defaultFileExtension: string
     fileNameFormat: FileNameFormat
     newNoteDirectory: NoteDirectory | string
@@ -24,6 +25,7 @@ export function getConfig(): Config {
     const config = vscode.workspace.getConfiguration('markdown-note-factory')
 
     return {
+        dateFormat: config.get('dateFormat') || 'yyyy-MM-dd',
         defaultFileExtension: config.get('defaultFileExtension') || 'md',
         fileNameFormat:
             config.get('fileNameFormat') || FileNameFormat.lowercaseSlugged,

@@ -81,10 +81,15 @@
 					"default": "",
 					"description": "Path to note template file. This path may be absolute, or relative to the workspace root. If present, this file will be used instead of the Note Template setting."
 				},
+				"markdown-note-factory.dateFormat": {
+					"type": "string",
+					"default": "yyyy-MM-dd",
+					"description": "A date format string to control the ${date} token output in templates. See date-fns for formatting options: https://date-fns.org/v2.16.1/docs/format"
+				},
 				"markdown-note-factory.selectionReplacementTemplate": {
 					"type": "string",
 					"default": "[[${fileName}]]",
-					"description": "When creating a note from selected text, this template will take the place of the selected text in the origin document. Available tokens: ${absoluteFilePath}, ${relativeDirectoryPath}, ${fileExtension}, ${fileName}, ${fileNameWithExtension}, ${fileWorkspaceDirectory}."
+					"description": "When creating a note from selected text, this template will take the place of the selected text in the origin document. Available tokens: ${absoluteFilePath}, ${relativeDirectoryPath}, ${fileExtension}, ${fileName}, ${fileNameWithExtension}, ${fileWorkspaceDirectory}, ${date}, ${timestamp}."
 				}
 			}
 		}

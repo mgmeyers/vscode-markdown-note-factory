@@ -16,6 +16,15 @@ You can also access this command from the context menu:
 
 ## Extension Settings
 
+
+`dateFormat`
+
+`default`: `yyyy-MM-dd`
+
+A date format string to control the ${date} token output in templates. See date-fns for formatting options: https://date-fns.org/v2.16.1/docs/format
+
+---    
+
 `defaultFileExtension`
 
 `default`: `md`
@@ -46,10 +55,18 @@ The destination directory for new notes. Defaults to 'SAME_AS_ACTIVE_NOTE'; you 
 
 Template to use when creating notes. Available tokens: ${noteTitle}, ${noteContent}, ${date}, ${timestamp}. Timestamp is inserted in ISO format, i.e. 2020-07-09T05:29:00.541Z.
 
----    
+---
+
+`noteTemplateFile`
+
+`default`: ``
+
+Path to note template file. This path may be absolute, or relative to the workspace root. If present, this file will be used instead of the Note Template setting.
+
+---
 
 `selectionReplacementTemplate`
 
 `default`: `[[${fileName}]]`
 
-When creating a note from selected text, this template will take the place of the selected text in the origin document. Available tokens: ${absoluteFilePath}, ${relativeDirectoryPath}, ${fileExtension}, ${fileName}, ${fileNameWithExtension}, ${fileWorkspaceDirectory}.
+When creating a note from selected text, this template will take the place of the selected text in the origin document. Available tokens: ${absoluteFilePath}, ${relativeDirectoryPath}, ${fileExtension}, ${fileName}, ${fileNameWithExtension}, ${fileWorkspaceDirectory}, ${date}, ${timestamp}.

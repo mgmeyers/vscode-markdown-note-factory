@@ -3,6 +3,7 @@ import { dirname, isAbsolute, join, relative, sep } from 'path'
 import { existsSync, writeFileSync, readFileSync } from 'fs'
 import GithubSlugger from 'github-slugger'
 import sanitizeFileName from 'sanitize-filename'
+import { format } from 'date-fns'
 import { FileNameFormat, getConfig, NoteDirectory } from '../config'
 
 export const fileExtensionRe = /\.(md|markdown|mdx|fountain)$/i
@@ -147,8 +148,7 @@ export function createNote(noteTitle: string, noteContent?: string) {
             noteTitle,
             noteContent,
             timestamp: new Date().toISOString(),
-            date: (new Date().toISOString().match(/(\d{4}-\d{2}-\d{2})/) ||
-                '')[0],
+            date: format(new Date(), config.dateFormat),
         })
         writeFileSync(absoluteFilePath, fileContent)
     }

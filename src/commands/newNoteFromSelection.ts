@@ -1,3 +1,4 @@
+import { format } from 'date-fns'
 import * as vscode from 'vscode'
 import { getConfig } from '../config'
 
@@ -46,6 +47,8 @@ export function newNoteFromSelection() {
             const replacement = fillTemplate(
                 config.selectionReplacementTemplate,
                 {
+                    timestamp: new Date().toISOString(),
+                    date: format(new Date(), config.dateFormat),
                     absoluteFilePath,
                     relativeDirectoryPath: getPathBetween(
                         originEditor.document.uri.fsPath,

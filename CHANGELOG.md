@@ -1,9 +1,6 @@
 # Change Log
 
-All notable changes to the "markdown-note-factory" extension will be documented in this file.
+# 2020-10-10
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+- Adds support for note template file
+- Adds support for custom date formatting using [date-fns](https://date-fns.org/v2.16.1/docs/format)

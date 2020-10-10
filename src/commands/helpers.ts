@@ -63,7 +63,6 @@ export function fillTemplate(
         .replace(/\\n/g, '\n')
         .replace(/\\r/g, '\r')
         .replace(/(\$\{)([^}]+)(\})/g, (match, _, token) => {
-            console.log('match', match, _, token)
             const value = values[token]
 
             if (value) {

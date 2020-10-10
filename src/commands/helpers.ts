@@ -58,15 +58,19 @@ export function fillTemplate(
     template: string,
     values: { [k: string]: string | undefined }
 ) {
-    return template.replace(/(\$\{)(.+)(\})/g, (match, _, token) => {
-        const value = values[token]
+    return template
+        .replace(/\\n/g, '\n')
+        .replace(/\\r/g, '\r')
+        .replace(/(\$\{)([^}]+)(\})/g, (match, _, token) => {
+            console.log('match', match, _, token)
+            const value = values[token]
 
-        if (value) {
-            return value
-        }
+            if (value) {
+                return value
+            }
 
-        return ''
-    })
+            return ''
+        })
 }
 
 export function createNote(noteTitle: string, noteContent?: string) {

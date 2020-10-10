@@ -73,7 +73,7 @@
 				},
 				"markdown-note-factory.noteTemplate": {
 					"type": "string",
-					"default": "# ${noteTitle}\n\n${noteContent}",
+					"default": "# ${noteTitle}\\n\\n${noteContent}",
 					"description": "Template to use when creating notes. Available tokens: ${noteTitle}, ${noteContent}, ${date}, ${timestamp}. Timestamp is inserted in ISO format, i.e. 2020-07-09T05:29:00.541Z."
 				},
 				"markdown-note-factory.selectionReplacementTemplate": {

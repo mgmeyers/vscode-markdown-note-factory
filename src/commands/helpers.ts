@@ -1,6 +1,6 @@
 import * as vscode from 'vscode'
 import { dirname, isAbsolute, join, relative, sep } from 'path'
-import { existsSync, writeFileSync } from 'fs'
+import { existsSync, writeFileSync, readFileSync } from 'fs'
 import GithubSlugger from 'github-slugger'
 import sanitizeFileName from 'sanitize-filename'
 import { FileNameFormat, getConfig, NoteDirectory } from '../config'
@@ -131,7 +131,19 @@ export function createNote(noteTitle: string, noteContent?: string) {
             `Error: note at path already exists: ${absoluteFilePath}`
         )
     } else {
-        const fileContent = fillTemplate(config.noteTemplate, {
+        const noteTemplateFilePath = config.noteTemplateFile
+        
+        let template = config.noteTemplate
+        
+        if (noteTemplateFilePath) {
+            if (isAbsolute(noteTemplateFilePath)) {
+                template = readFileSync(noteTemplateFilePath).toString()
+            } else if (workspacePath) {
+                template = readFileSync(join(workspacePath, noteTemplateFilePath)).toString()
+            }
+        }
+
+        const fileContent = fillTemplate(template, {
             noteTitle,
             noteContent,
             timestamp: new Date().toISOString(),

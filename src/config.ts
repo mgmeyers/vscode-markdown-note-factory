@@ -16,6 +16,7 @@ export interface Config {
     fileNameFormat: FileNameFormat
     newNoteDirectory: NoteDirectory | string
     noteTemplate: string
+    noteTemplateFile: string
     selectionReplacementTemplate: string
 }
 
@@ -30,6 +31,8 @@ export function getConfig(): Config {
             config.get('newNoteDirectory') || NoteDirectory.sameAsActiveNote,
         noteTemplate:
             config.get('noteTemplate') || '# ${noteTitle}\n\n${noteContent}',
+        noteTemplateFile:
+            config.get('noteTemplateFile') || '',
         selectionReplacementTemplate:
             config.get('selectionReplacementTemplate') || '[[${fileName}]]',
     }

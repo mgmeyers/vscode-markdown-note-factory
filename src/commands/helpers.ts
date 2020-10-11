@@ -131,15 +131,18 @@ export function createNote(noteTitle: string, noteContent?: string) {
             `Error: note at path already exists: ${absoluteFilePath}`
         )
     } else {
-        const noteTemplateFilePath = config.noteTemplateFile
-        
+        let noteTemplateFilePath = config.noteTemplateFile
         let template = config.noteTemplate
         
         if (noteTemplateFilePath) {
-            if (isAbsolute(noteTemplateFilePath)) {
+            if (!isAbsolute(noteTemplateFilePath) && workspacePath) {
+                noteTemplateFilePath = join(workspacePath, noteTemplateFilePath)
+            }
+
+            if (existsSync(noteTemplateFilePath)) {
                 template = readFileSync(noteTemplateFilePath).toString()
-            } else if (workspacePath) {
-                template = readFileSync(join(workspacePath, noteTemplateFilePath)).toString()
+            } else {
+                vscode.window.showErrorMessage(`Error creating note: template file not found: ${noteTemplateFilePath}`)
             }
         }
 
@@ -149,6 +152,7 @@ export function createNote(noteTitle: string, noteContent?: string) {
             timestamp: new Date().toISOString(),
             date: format(new Date(), config.dateFormat),
         })
+        
         writeFileSync(absoluteFilePath, fileContent)
     }
 

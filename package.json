@@ -2,7 +2,7 @@
 	"name": "markdown-note-factory",
 	"displayName": "Markdown Note Factory",
 	"description": "Helper commands for creating new markdown notes within a workspace",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"publisher": "mgmeyers",
 	"repository": {
 		"url": "https://github.com/mgmeyers/vscode-markdown-note-factory.git",

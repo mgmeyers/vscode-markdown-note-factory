@@ -79,7 +79,7 @@
 				"markdown-note-factory.noteTemplateFile": {
 					"type": "string",
 					"default": "",
-					"description": "Path to note template file. This path may be absolute, or relative to the workspace root. If present, this file will be used instead of the Note Template setting."
+					"description": "Path to note template file. This path may be absolute, or relative to the workspace root. If present, this file will be used instead of the Note Template setting. Available tokens: ${noteTitle}, ${noteContent}, ${date}, ${timestamp}. Timestamp is inserted in ISO format, i.e. 2020-07-09T05:29:00.541Z."
 				},
 				"markdown-note-factory.dateFormat": {
 					"type": "string",

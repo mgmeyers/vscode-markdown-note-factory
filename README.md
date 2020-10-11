@@ -61,7 +61,26 @@ Template to use when creating notes. Available tokens: ${noteTitle}, ${noteConte
 
 `default`: ``
 
-Path to note template file. This path may be absolute, or relative to the workspace root. If present, this file will be used instead of the Note Template setting.
+Path to note template file. This path may be absolute or relative to the workspace root. If present, the template file will be used instead of the Note Template setting. Available tokens: ${noteTitle}, ${noteContent}, ${date}, ${timestamp}. Timestamp is inserted in ISO format, i.e. 2020-07-09T05:29:00.541Z.
+
+## Example
+
+Say you have this template in your workspace
+
+`assets/my-note-template.md`
+```
+# ${noteTitle}
+
+## Created on
+${date}
+
+## Content
+${noteContent}
+```
+
+To use this template, you would set `noteTemplateFile` to `assets/my-note-template.md`
+
+Alternatively, you can point to a file anywhere on your disk using an absolute path like `/Users/my-name/Documents/my-note-template.md`
 
 ---
 

@@ -11,6 +11,12 @@ export enum NoteDirectory {
     workspaceRoot = 'WORKSPACE_ROOT',
 }
 
+export enum NoteDestination {
+    foreground = 'foreground',
+    background = 'background',
+    none = 'none',
+}
+
 export interface Config {
     dateFormat: string
     defaultFileExtension: string
@@ -18,6 +24,8 @@ export interface Config {
     newNoteDirectory: NoteDirectory | string
     noteTemplate: string
     noteTemplateFile: string
+    newNoteFromSelectionTab: NoteDestination
+    newNoteTab: NoteDestination
     selectionReplacementTemplate: string
 }
 
@@ -33,8 +41,12 @@ export function getConfig(): Config {
             config.get('newNoteDirectory') || NoteDirectory.sameAsActiveNote,
         noteTemplate:
             config.get('noteTemplate') || '# ${noteTitle}\n\n${noteContent}',
-        noteTemplateFile:
-            config.get('noteTemplateFile') || '',
+        noteTemplateFile: config.get('noteTemplateFile') || '',
+        newNoteFromSelectionTab:
+            config.get('newNoteFromSelectionTab') ||
+            NoteDestination.foreground,
+        newNoteTab:
+            config.get('newNoteTab') || NoteDestination.foreground,
         selectionReplacementTemplate:
             config.get('selectionReplacementTemplate') || '[[${fileName}]]',
     }

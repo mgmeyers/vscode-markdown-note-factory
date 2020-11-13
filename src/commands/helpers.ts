@@ -133,7 +133,7 @@ export function createNote(noteTitle: string, noteContent?: string) {
     } else {
         let noteTemplateFilePath = config.noteTemplateFile
         let template = config.noteTemplate
-        
+
         if (noteTemplateFilePath) {
             if (!isAbsolute(noteTemplateFilePath) && workspacePath) {
                 noteTemplateFilePath = join(workspacePath, noteTemplateFilePath)
@@ -142,7 +142,9 @@ export function createNote(noteTitle: string, noteContent?: string) {
             if (existsSync(noteTemplateFilePath)) {
                 template = readFileSync(noteTemplateFilePath).toString()
             } else {
-                vscode.window.showErrorMessage(`Error creating note: template file not found: ${noteTemplateFilePath}`)
+                vscode.window.showErrorMessage(
+                    `Error creating note: template file not found: ${noteTemplateFilePath}`
+                )
             }
         }
 
@@ -152,7 +154,7 @@ export function createNote(noteTitle: string, noteContent?: string) {
             timestamp: new Date().toISOString(),
             date: format(new Date(), config.dateFormat),
         })
-        
+
         writeFileSync(absoluteFilePath, fileContent)
     }
 
@@ -167,9 +169,15 @@ export function createNote(noteTitle: string, noteContent?: string) {
     }
 }
 
-export function openNoteByFilePath(filepath: string) {
+export function openNoteByFilePath({
+    filepath,
+    shouldOpenInBackground,
+}: {
+    filepath: string
+    shouldOpenInBackground?: boolean
+}) {
     return vscode.window.showTextDocument(vscode.Uri.file(filepath), {
-        preserveFocus: false,
-        preview: false,
+        preserveFocus: !!shouldOpenInBackground,
+        preview: !!shouldOpenInBackground,
     })
 }

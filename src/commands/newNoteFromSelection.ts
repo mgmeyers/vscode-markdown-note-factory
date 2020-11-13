@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 import * as vscode from 'vscode'
-import { getConfig } from '../config'
+import { getConfig, NoteDestination } from '../config'
 
 import {
     createNote,
@@ -62,18 +62,25 @@ export function newNoteFromSelection() {
                 edit.replace(originSelectionRange, replacement)
             })
 
-            openNoteByFilePath(absoluteFilePath).then(() => {
-                const editor = vscode.window.activeTextEditor
+            const newNoteDestination = getConfig().newNoteFromSelectionTab
 
-                if (!editor) {
-                    return
-                }
+            if (newNoteDestination === NoteDestination.none) {
+                return
+            }
 
+            const shouldOpenInBackground = newNoteDestination === NoteDestination.background
+            const sourceURI = vscode.window.activeTextEditor?.document.uri
+
+            openNoteByFilePath({ filepath: absoluteFilePath, shouldOpenInBackground }).then((editor) => {
                 const lineNumber = editor.document.lineCount
                 const range = editor.document.lineAt(lineNumber - 1).range
 
                 editor.selection = new vscode.Selection(range.end, range.end)
                 editor.revealRange(range)
+
+                if (shouldOpenInBackground && sourceURI) {
+                    vscode.window.showTextDocument(sourceURI)
+                }
             })
         },
         () => {

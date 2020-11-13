@@ -90,6 +90,26 @@
 					"type": "string",
 					"default": "[[${fileName}]]",
 					"description": "When creating a note from selected text, this template will take the place of the selected text in the origin document. Available tokens: ${absoluteFilePath}, ${relativeDirectoryPath}, ${fileExtension}, ${fileName}, ${fileNameWithExtension}, ${fileWorkspaceDirectory}, ${date}, ${timestamp}."
+				},
+				"markdown-note-factory.newNoteTab": {
+					"type": "string",
+					"enum": [
+						"foreground",
+						"background",
+						"none"
+					],
+					"default": "foreground",
+					"description": "Determine if newly created notes should be opened in a foreground tab, background tab, or should be created but not opened ('none')."
+				},
+				"markdown-note-factory.newNoteFromSelectionTab": {
+					"type": "string",
+					"enum": [
+						"foreground",
+						"background",
+						"none"
+					],
+					"default": "foreground",
+					"description": "Determine if notes created from selected text should be opened in a foreground tab, background tab, or should be created but not opened ('none')."
 				}
 			}
 		}

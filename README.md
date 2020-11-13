@@ -50,13 +50,13 @@ Template to use when creating notes. Available tokens: ${noteTitle}, ${noteConte
 
 Path to note template file. This path may be absolute or relative to the workspace root. If present, the template file will be used instead of the Note Template setting. Available tokens: ${noteTitle}, ${noteContent}, ${date}, ${timestamp}. Timestamp is inserted in ISO format, i.e. 2020-07-09T05:29:00.541Z.
 
-### newNoteTab
+### `newNoteTab`
 
 `default`: `foreground`
 
 Determine if newly created notes should be opened in the foreground, background, or should be created but not opened ('none').
 
-### newNoteFromSelectionTab
+### `newNoteFromSelectionTab`
 
 `default`: `foreground`
 
